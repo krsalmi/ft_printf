@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_text.c                                       :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksalmi <ksalmi@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/01/29 16:52:04 by ksalmi            #+#    #+#             */
-/*   Updated: 2020/01/29 17:21:32 by ksalmi           ###   ########.fr       */
+/*   Created: 2020/03/02 12:19:43 by ksalmi            #+#    #+#             */
+/*   Updated: 2020/03/02 15:41:29 by ksalmi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		print_text(t_data *data)
+void	error(int i)
 {
-	int	i;
-
-	i = 0;
-	data->len = 0;
-	while (data->final[i])
+	if (i < 0)
 	{
-		ft_putchar(data->final[i]);
-		data->len++;
-		i++;
+		ft_putstr("<ERROR> invalid input.\n");
+		exit(0);
 	}
 }

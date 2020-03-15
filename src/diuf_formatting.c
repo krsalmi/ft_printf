@@ -67,10 +67,10 @@ t_data	*u_formatting(t_data *data)
 
 t_data	*f_formatting(t_data *data)
 {
-	double	f;
+	long double	f;
 
 	if (data->length_flags == 0)
-		f = va_arg(data->args, double);
+		f = (double)va_arg(data->args, double);
 	else
 	{
 		if (!ft_strcmp("l", data->len_flag))
@@ -82,5 +82,5 @@ t_data	*f_formatting(t_data *data)
 		data->is_neg = 1;
 	data->formatted_area = ft_itoa_double(f, data->precision);
 	data->formatted_len = (int)ft_strlen(data->formatted_area);
-	return (0);
+	return (data);
 }

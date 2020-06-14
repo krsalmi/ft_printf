@@ -31,7 +31,7 @@ t_data		*cut_specs(t_data *data)
 		data->str_save_start = data->i + 1;
 	}
 	else
-		error(-1);
+		error_handling(-1);
 	return (data);
 }
 

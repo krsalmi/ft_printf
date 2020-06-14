@@ -41,22 +41,26 @@ static char		*round_up(char *s, long long int len)
 	long long int	num;
 	long long int	final;
 	char			*new;
+	long long int	len_final;
 
 	ints = ft_strsub(s, 0, ft_strlen(s) - ft_strlen(ft_strchr(s, '.')));
 	num = ft_atoi(ints);
+	free(ints);
 	final = num + 1;
 	if (num < 0)
 		final = num - 1;
-	if (intlength_double(final) > intlength_double(num))
+	if ((len_final = intlength_double(final)) > intlength_double(num))
 		new = ft_strnew(len + 1);
 	else
 		new = ft_strnew(len);
-	new = ft_itoa_ll(final);
+	put_ints(new, (double)final, len_final);
 	if (final >= 0)
 		ft_strcpy(&new[(int)intlength_double(final)], ft_strchr(s, '.'));
 	else
 		ft_strcpy(&new[(int)intlength_double(final) + 1], ft_strchr(s, '.'));
-	return (new);
+	free(s);
+	s = new;
+	return (s);
 }
 
 char			*put_floats(char *s, long double n, int prec, long long int len)

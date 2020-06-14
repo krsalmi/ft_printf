@@ -29,6 +29,8 @@ t_data	*put_plus_space_flag(t_data *data)
 		free(data->formatted_area);
 		data->formatted_area = ft_strjoin(add, tmp);
 		data->formatted_len += 1;
+		free(tmp);
+		free(add);
 	}
 	return (data);
 }

@@ -20,5 +20,6 @@ t_data	*init_first_time(t_data *data, const char *format)
 	data->str_save_start = 0;
 	data->final_len = 0;
 	data->str_save_start = 0;
+	data->length_flags = 0;
 	return (data);
 }

@@ -27,12 +27,8 @@ t_data	*put_justify_flag(t_data *data)
 		free(data->formatted_area);
 		data->formatted_area = ft_strjoin(tmp, add);
 		data->formatted_len = data->formatted_len + added_len;
+		free(add);
+		free(tmp);
 	}
-	return (data);
-}
-
-t_data	*put_asterisk_flag(t_data *data)
-{
-	data->width_num = va_arg(data->args, int);
 	return (data);
 }

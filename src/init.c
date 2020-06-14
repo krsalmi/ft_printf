@@ -14,11 +14,7 @@
 
 t_data	*init(t_data *data)
 {
-	if (data->length_flags == 1)
-	{
-		free(data->len_flag);
-		data->len_flag = NULL;
-	}
+	data->len_flag = NULL;
 	data->spec_i = 0;
 	data->spec_len = 1;
 	data->width_num = 0;
@@ -32,9 +28,11 @@ t_data	*init(t_data *data)
 	data->flag_zero = 0;
 	data->flag_precis = 0;
 	data->flag_width = 0;
-	data->flag_asterisk = 0;
+	data->flag_asterisk_width = 0;
+	data->flag_asterisk_prec = 0;
 	data->length_flags = 0;
 	data->after_specs = 0;
 	data->is_neg = 0;
+	data->null_char = 0;
 	return (data);
 }

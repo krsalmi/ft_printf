@@ -36,5 +36,7 @@ int		ft_printf(const char *format, ...)
 	save_area(&data);
 	va_end(data.args);
 	print_text(&data);
+	free(data.f_arg);
+	free(data.last);
 	return (data.final_len);
 }

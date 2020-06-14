@@ -78,6 +78,7 @@ t_data	*p_formatting(t_data *data)
 	temp = ft_itoa_base_ll_low(num, 16);
 	data->formatted_area = ft_strjoin(beginning, temp);
 	data->formatted_len = (int)ft_strlen(data->formatted_area);
+	free(temp);
 	return (data);
 }
 

@@ -30,5 +30,5 @@ t_data	*put_field_width(t_data *data)
 		free(add);
 		data->formatted_len = data->formatted_len + added_len;
 	}
-	return (0);
+	return (data);
 }

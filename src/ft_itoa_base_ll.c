@@ -30,7 +30,8 @@ char	*ft_itoa_base_ll_low(unsigned long long value, unsigned int base)
 		temp = temp / base;
 		len++;
 	}
-	new = ft_strnew((size_t)len);
+	if (!(new = ft_strnew((size_t)len)))
+		return (NULL);
 	while (--len >= 0)
 	{
 		mod = value % base;

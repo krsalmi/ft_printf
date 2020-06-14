@@ -40,6 +40,8 @@ static void	add_zeroes(t_data *data)
 	free(data->formatted_area);
 	data->formatted_area = ft_strjoin(zeroes, tmp);
 	data->formatted_len = data->formatted_len + zero_len;
+	free(tmp);
+	free(zeroes);
 	if (data->form_specifier == 'x' &&
 			data->flag_hash && ft_strchr(data->formatted_area, 'x'))
 	{

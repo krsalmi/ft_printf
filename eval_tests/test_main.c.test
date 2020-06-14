@@ -6,11 +6,11 @@ int		main()
 	int i;
 	int j;
 
-	ft_printf("\n\n{YELLOW}********************************************************************************************{EOC}\n");
-	ft_printf("{CYAN}----------------------------------TESTS FOR FT_PRINTF-------------------------------------------{EOC}");
-	ft_printf("\n{YELLOW}*******************************************************************************************{EOC}\n\n");
+	ft_printf("\n\n%y********************************************************************************************%y\n", YELLOW, EOC);
+	ft_printf("%y----------------------------------TESTS FOR FT_PRINTF-------------------------------------------%y", CYAN, EOC);
+	ft_printf("\n%y*******************************************************************************************%y\n\n", YELLOW, EOC);
 	ft_printf("All tests will follow the same logic:\n1) results for my ft_printf and		return value\n2) results for normal printf and	return value\n\n\n");
-	ft_printf("{MAGENTA}		Basic string tests without arguments or flags{EOC}\n\n");
+	ft_printf("%y		Basic string tests without arguments or flags%y\n\n", MAGENTA, EOC);
 	ft_printf("Empty string:\n");
 	i = ft_printf("");
 	ft_printf("	%d\n", i);
@@ -42,7 +42,7 @@ int		main()
 	printf("\n	%d\n", j);
 	ft_printf("\n");
 
-	ft_printf("\n{MAGENTA}	Testing %%-mark{EOC}\n\n");
+	ft_printf("\n%y	Testing %%-mark%y\n\n", MAGENTA, EOC);
   	i = ft_printf("%%");                              //-> "%"
   	ft_printf("	%d\n", i);
 	j = printf("%%");
@@ -73,8 +73,8 @@ int		main()
 	printf("	%d\n", j);
   	ft_printf("\n");
 
-	ft_printf("\n{YELLOW}$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$${EOC}\n");
-	ft_printf("\n	{MAGENTA}Testing c-conversion:\n\n{EOC}");
+	ft_printf("\n%y$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$%y\n", YELLOW, EOC);
+	ft_printf("\n	%yTesting c-conversion:\n\n%y", MAGENTA, EOC);
   	i = ft_printf("%c", 'a');                            //-> "a"
 	ft_printf("	%d\n", i);
  	j = printf("%c", 'a');
@@ -109,8 +109,15 @@ int		main()
 	printf("	%d\n", j);
 	printf("\n");
 
-	ft_printf("\n{YELLOW}$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$${EOC}\n");
-	ft_printf("\n	{MAGENTA}Testing s-conversion:\n\n{EOC}");
+	ft_printf("Testing NULL character in a string (hello %%c null char)\n");
+	i = ft_printf("hello %c null char", 0);
+	ft_printf("	%d\n", i);
+	j = printf("hello %c null char", 0);
+	printf("	%d\n", j);
+	printf("\n");
+
+	ft_printf("\n%y$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$%y\n", YELLOW, EOC);
+	ft_printf("\n	%yTesting s-conversion:\n\n%y", MAGENTA, EOC);
 
 	i = ft_printf("%s", "Today is a new day");          // -> "Today is a new day"
 	ft_printf("	%d\n", i);
@@ -149,7 +156,7 @@ int		main()
 	printf("	%d\n", j);
   	ft_printf("\n");
 
-	ft_printf("\n	{MAGENTA}Testing p-conversion:\n\n{EOC}");
+	ft_printf("\n	%yTesting p-conversion:\n\n%y", MAGENTA, EOC);
 	int b = 3;
 	int *p;
 	p = &b;
@@ -173,8 +180,8 @@ int		main()
   	ft_printf("\n");
 
 
-	ft_printf("\n{YELLOW}$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$${EOC}\n");
-	ft_printf("\n	{MAGENTA}Testing d-conversion. From now on only the printed output will be shown in the same order as before:\n{EOC}");
+	ft_printf("\n%y$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$%y\n", YELLOW, EOC);
+	ft_printf("\n	%yTesting d-conversion. From now on only the printed output will be shown in the same order as before:\n%y", MAGENTA, EOC);
 
 	ft_printf("%d\n", 1);                           //-> "1"
 	printf("%d\n\n", 1);
@@ -221,8 +228,8 @@ int		main()
 	printf("short:%hd\n\n", a);
 
 	ft_printf("\n	With precision\n");
-	ft_printf("%.5d\n", 42);
-	printf("%.5d\n", 42);
+	ft_printf("|%.5d|\n", 42);
+	printf("|%.5d|\n", 42);
 
 
 	ft_printf("\n	With field width of 8 and 42 as argument\n");	
@@ -257,8 +264,8 @@ int		main()
   	ft_printf("|%6.d| |%6.0d|\n", 0, 0);
 	printf("|%6.d| |%6.0d|\n", 0, 0);
 
-	ft_printf("\n{YELLOW}$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$${EOC}\n");
-	ft_printf("	{MAGENTA}Testing i- and u-conversions\n{EOC}");
+	ft_printf("\n%y$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$%y\n", YELLOW, EOC);
+	ft_printf("	%yTesting i- and u-conversions\n%y", MAGENTA, EOC);
 	
 	ft_printf("%i\n", 678);                          //-> "678"
 	printf("%i\n\n", 678); 
@@ -270,8 +277,8 @@ int		main()
 	ft_printf("%lu\n", -42);                       // -> "18446744073709551574"
 	printf("%lu\n", -42);
 
-	ft_printf("\n{YELLOW}$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$${EOC}\n");
-	ft_printf("	{MAGENTA}Testing x- and X-conversions\n{EOC}");
+	ft_printf("\n%y$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$%y\n", YELLOW, EOC);
+	ft_printf("	%yTesting x- and X-conversions\n%y", MAGENTA, EOC);
 	
 	ft_printf("%X\n", 0);                           //-> "0"
 	printf("%X\n\n", 0);   
@@ -298,12 +305,12 @@ int		main()
 	printf("|%010x|\n\n", 542); 
 
 	ft_printf("	With a precision of 10\n");
-	ft_printf("%.10x\n", 5427);                      //-> "1533" 
-	printf("%.10x\n\n", 5427);   
+	ft_printf("|%.10x|\n", 5427);                      //-> "1533" 
+	printf("|%.10x|\n\n", 5427);   
 
 	ft_printf("	With 10 precision and 20 field width\n");
-	ft_printf("%20.10x\n", 5427);                     //-> " 1533"
-	printf("%20.10x\n\n", 5427); 
+	ft_printf("|%20.10x|\n", 5427);                     //-> " 1533"
+	printf("|%20.10x|\n\n", 5427); 
 
 	ft_printf("	With hash flag\n");
 	ft_printf("%#X\n", 42);                         //-> "0x2a"
@@ -313,15 +320,15 @@ int		main()
 	printf("%#x\n\n", 0); 
 
 	ft_printf("	With hash and zero flags and a field width of 8\n");
-	ft_printf("%#08x\n", 42);                       //-> "0x00002a"
-	printf("%#08x\n\n", 42);  
+	ft_printf("|%#08x|\n", 42);                       //-> "0x00002a"
+	printf("|%#08x|\n\n", 42);  
 
-	ft_printf("\n{YELLOW}$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$${EOC}\n");
-	ft_printf("	{MAGENTA}Testing o-conversion\n{EOC}");
+	ft_printf("\n%y$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$%y\n", YELLOW, EOC);
+	ft_printf("	%yTesting o-conversion\n%y", MAGENTA, EOC);
   	
 	ft_printf("42 in octal with zero flag and a field width of 5\n");
-	ft_printf("%05o\n", 42);                        //-> "00052"
- 	printf("%05o\n\n", 42); 
+	ft_printf("|%05o|\n", 42);                        //-> "00052"
+ 	printf("|%05o|\n\n", 42); 
   
   	ft_printf("2500 in octal with hash flag and a field width of 6\n");
 	ft_printf("|%#6o|\n", 2500);                      //-> " 04704"
@@ -336,8 +343,8 @@ int		main()
 	printf("|%#.o| |%#.0o|\n\n", 0, 0);  
   
 
-	ft_printf("\n{YELLOW}$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$${EOC}\n");
-	ft_printf("	{MAGENTA}Testing f-conversion\n\n{EOC}");
+	ft_printf("\n%y$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$%y\n", YELLOW, EOC);
+	ft_printf("	%yTesting f-conversion\n\n%y", MAGENTA, EOC);
 
 	ft_printf("With no flags or precision specified. Argument is 4242.123456789\n");
 	ft_printf("%f\n", 4242.123456789);
@@ -375,5 +382,39 @@ int		main()
 	ft_printf("%Lf\n", 123456789123456789.123456789123456789L);
 	printf("%Lf\n\n", 123456789123456789.123456789123456789L);
 
-return (0);
+	ft_printf("\n%y$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$%y\n", YELLOW, EOC);
+	ft_printf("	%yTesting asterisk * -flag\n\n%y", MAGENTA, EOC);
+
+	ft_printf("* as field width of 10, argument is 1234\n");
+	ft_printf("|%*d|\n", 10, 1234);
+	printf("|%*d|\n\n", 10, 1234);
+	
+	ft_printf("* as precision of 4, string argument is Shakespeare\n");
+	ft_printf("|%.*s|\n", 4, "Shakespeare");
+	printf("|%.*s|\n\n", 4, "Shakespeare");
+
+	ft_printf("With field width and precision both as flags. Arguments are (field w=)15, (prec=)4 and (float=)4242.123456789\n");
+	ft_printf("|%*.*f|\n", 15, 4, 4242.123456789);
+	printf("|%*.*f|\n\n", 15, 4, 4242.123456789);
+
+	ft_printf("\n%y$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$%y\n", YELLOW, EOC);
+	ft_printf("	%yTesting precision-flag with 0\n\n%y", MAGENTA, EOC);
+	
+	ft_printf("With .0 precision and argument is 0, format specifier is x %%.x, 0\n");
+	ft_printf("|%.x|\n", 0);
+	printf("|%.x|\n\n", 0);
+
+	ft_printf("Same as before but with hash-flag %%#.x, 0\n");
+	ft_printf("|%#.x|\n", 0);
+	printf("|%#.x|\n\n", 0);
+
+	ft_printf("\n%y$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$%y\n", YELLOW, EOC);
+	ft_printf("	%yTesting my own binary conversion %%b\n\n%y", MAGENTA, EOC);
+	ft_printf("With an input of 42\n");
+	ft_printf("%b\n\n", 42);
+	
+	ft_printf("With an input of 532\n");
+	ft_printf("%b\n", 532);
+//	while(1);				//to test leaks, un-comment  the while loop
+	return (0);
 }

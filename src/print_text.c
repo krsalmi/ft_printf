@@ -17,13 +17,16 @@ void		print_text(t_data *data)
 	long long int	i;
 
 	i = 0;
-	while (data->last[i])
+	if (data->null_char)
 	{
-		if (data->last[i] == -1)
-			data->last[i] = 0;
-		if (data->last[i] == '{')
-			i = check_colors(data->last, i);
-		ft_putchar(data->last[i]);
-		i++;
+		while (data->last[i])
+		{
+			if (data->last[i] == -1)
+				data->last[i] = 0;
+			ft_putchar(data->last[i]);
+			i++;
+		}
 	}
+	else
+		ft_putstr(data->last);
 }

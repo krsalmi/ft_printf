@@ -34,6 +34,8 @@ static	t_data	*handle_dioux_precision(t_data *data)
 			data->formatted_area[0] = '-';
 		}
 		data->formatted_len = (int)ft_strlen(data->formatted_area);
+		free(zero);
+		free(tmp);
 	}
 	return (data);
 }
@@ -50,6 +52,7 @@ t_data			*handle_precision(t_data *data)
 			free(data->formatted_area);
 			data->formatted_area = ft_strsub(tmp, 0, (size_t)data->precision);
 			data->formatted_len = (int)ft_strlen(data->formatted_area);
+			free(tmp);
 		}
 		else
 		{

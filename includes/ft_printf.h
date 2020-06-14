@@ -12,7 +12,7 @@
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
-# define FORM_SPECIFIERS  "cspdiouxXfb"
+# define FORM_SPECIFIERS  "cspdiouxXfby"
 # define BASE_STR_UP "0123456789ABCDEF"
 # define BASE_STR_LOW "0123456789abcdef"
 # define DIOUXX	"diouxX"
@@ -42,7 +42,8 @@ typedef	struct	s_data
 	int		flag_zero;
 	int		flag_width;
 	int		flag_precis;
-	int		flag_asterisk;
+	int		flag_asterisk_width;
+	int		flag_asterisk_prec;
 	int		length_flags;
 	int		precision;
 	int		is_neg;
@@ -53,6 +54,7 @@ typedef	struct	s_data
 	int		str_save_len;
 	int		spec_len;
 	int		error;
+	int		null_char;
 }				t_data;
 int				ft_printf(const char *format, ...);
 t_data			*init_first_time(t_data *data, const char *format);
@@ -79,7 +81,6 @@ t_data			*put_zero_flag(t_data *data);
 t_data			*put_plus_space_flag(t_data *data);
 t_data			*put_justify_flag(t_data *data);
 t_data			*put_field_width(t_data *data);
-t_data			*put_asterisk_flag(t_data *data);
 t_data			*implement_flags(t_data *data);
 t_data			*handle_double_percent(t_data *data);
 void			print_text(t_data *data);
@@ -107,8 +108,7 @@ void			ft_putnbr(int n);
 int				ft_isalpha(int c);
 int				ft_isdigit(int c);
 int				ft_strcmp(const char *s1, const char *s2);
-void			error(int i);
+void			error_handling(int i);
 long long int	intlength_double(long double n);
 char			*all_zeroes_check(char *s);
-long long int	check_colors(char *s, long long int i);
 #endif

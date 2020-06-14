@@ -21,6 +21,9 @@ t_data	*add_to_final_str(t_data *data)
 	data->last = ft_strjoin(temp, data->formatted_area);
 	data->final_len = data->final_len + data->formatted_len;
 	free(data->formatted_area);
+	free(data->specif_area);
 	free(temp);
+	if (data->length_flags == 1)
+		free(data->len_flag);
 	return (data);
 }

@@ -50,12 +50,10 @@ static void		read_precision(t_data *data)
 		}
 		str_precision = ft_strsub(data->specif_area, start, precis_len);
 		data->precision = ft_atoi(str_precision);
+		free(str_precision);
 	}
 	else if (data->specif_area[data->spec_i] == '*')
-	{
-		data->precision = va_arg(data->args, int);
-		data->spec_i++;
-	}
+		data->flag_asterisk_prec = 1;
 	else
 		data->precision = 0;
 }
@@ -77,7 +75,7 @@ static void		read_length_flags(t_data *data)
 	if (ft_strcmp(data->len_flag, "h") && ft_strcmp(data->len_flag, "hh") &&
 			ft_strcmp(data->len_flag, "l") && ft_strcmp(data->len_flag, "ll")
 			&& ft_strcmp(data->len_flag, "L"))
-		error(-1);
+		error_handling(-1);
 }
 
 static void		read_basic_flags(t_data *data)
@@ -91,6 +89,8 @@ static void		read_basic_flags(t_data *data)
 		data->flag_justify = 1;
 	if (data->specif_area[data->spec_i] == '#')
 		data->flag_hash = 1;
+	if (data->specif_area[data->spec_i] == '0' && data->flag_width == 0)
+		data->flag_zero = 1;
 }
 
 t_data			*read_specs(t_data *data)
@@ -99,10 +99,9 @@ t_data			*read_specs(t_data *data)
 	while (data->spec_i < data->spec_len - 1)
 	{
 		read_basic_flags(data);
-		if (data->specif_area[data->spec_i] == '*')
-			data->flag_asterisk = 1;
-		if (data->specif_area[data->spec_i] == '0' && data->flag_width == 0)
-			data->flag_zero = 1;
+		if (data->specif_area[data->spec_i] == '*' \
+			&& data->specif_area[data->spec_i - 1] != '.')
+			data->flag_asterisk_width = 1;
 		if (ft_isdigit(data->specif_area[data->spec_i])
 				&& data->specif_area[data->spec_i] != '0')
 			read_field_width(data);

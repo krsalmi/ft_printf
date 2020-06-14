@@ -28,7 +28,10 @@ t_data	*c_formatting(t_data *data)
 
 	c = (unsigned char)va_arg(data->args, int);
 	if (c == 0)
+	{
 		c = -1;
+		data->null_char = 1;
+	}
 	data->formatted_area = ft_strnew(1);
 	data->formatted_area[0] = c;
 	data->formatted_len = 1;

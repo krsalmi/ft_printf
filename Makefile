@@ -40,17 +40,20 @@ FLAGS = -Wall -Wextra -Werror
 all: $(NAME)
 
 $(NAME):
-	gcc -c $(SRCS) $(FLAGS) -I $(INCLUDES)
-	ar rc $(NAME) $(OBJ)
-	ranlib $(NAME)
-	mkdir -p $(OBJ_DIR)
-	mv -f $(OBJ) $(OBJ_DIR)
-
+	@echo "\033[31mCompiling\033[0m $(NAME)\033[31m...\033[0m"
+	@gcc -c $(SRCS) $(FLAGS) -I $(INCLUDES)
+	@ar rc $(NAME) $(OBJ)
+	@ranlib $(NAME)
+	@mkdir -p $(OBJ_DIR)
+	@mv -f $(OBJ) $(OBJ_DIR)
+	@echo "\033[32mCompiled!\033[0m"
 clean:
-	/bin/rm -f $(OBJECTS)
-	/bin/rm -rf $(OBJ_DIR)
+	@echo "\033[31mRemoving object files\033[0m"
+	@/bin/rm -f $(OBJECTS)
+	@/bin/rm -rf $(OBJ_DIR)
 
 fclean: clean
-	/bin/rm -f $(NAME)
+	@echo "\033[31mRemoving\033[0m $(NAME)"
+	@/bin/rm -f $(NAME)
 
 re: fclean all

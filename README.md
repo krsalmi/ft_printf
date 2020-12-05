@@ -27,6 +27,7 @@ The includes-directory has a file called colors.h, which has all the possible co
 ft_printf("%yThis is in yellow,%y this is not", YELLOW, EOC); 
 ```
 The %y conversion has to be written to start a color, and again to end it (EOC).
+My ft_printf also handles the wildcard flag (*) with precision as well as feel width, which I find very useful.
 
 ## Test_main
 I've written a long test_main.c file for this project, in which the output of my function ft_printf can easily be compared with the original printf function.
@@ -47,4 +48,11 @@ named the files according to the function that is in it, I find that I could hav
 up with fewer files.  
 In this project we were allowed to use the functions in our 'libft' library, which we coded as one of our first assignments after starting the
 école 42 curriculum. Here those functions can be found in files named 'libc_functions*.c'. However, nowadays, I have
-added my ft_printf into my libft-library and not the other way around.
+added my ft_printf into my libft-library and not the other way around.  
+In this project, even though I tried to name variables and functions in a descriptive manner, I think it is a shame that 
+my code does not have any comments, something I would definitely do differently if I would begin this project now.  
+  
+In general, I'd say that this was a very challenging project for me. The basic structure of the function was fast and wuite 
+fun to build, but when it was time to code the individual conversions in detail, (for ex. managing the %f float conversion and the rounding up according to precision)
+ the project got exponentially more demanding. But it was definitely worth it and I learned so much and my understanding
+ of the nomal `printf` function (and my ability to use it) is at a whole other level.

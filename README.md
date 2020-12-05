@@ -42,7 +42,7 @@ in the test_main to see that my ft_printf handles different edge or wrongly form
 ## Remarks on my ft_printf and the project in general
 One of my goals for this project was to make my ft_printf function work fast. I decided to save everything in the input 
 into one string after making the conversion etc, so I would only have to call `write` once. This did make my ft_printf 
-faster than those of many of my peers, but, then again, my version uses more memory.
+faster than those of many of my peers, but, then again, my version uses more memory.  
 I coded this project in February 2020, so needless to say, there are many things I would do differently today. Although I have
 named the files according to the function that is in it, I find that I could have group many many of the functions together and end
 up with fewer files.  

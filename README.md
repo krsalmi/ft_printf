@@ -11,13 +11,13 @@ This project was coded as an assignment for my school, Hive Helsinki. The goal w
 The ft_printf function had to be able to handle conversion, such as string, integer and float, and it had to manage the implementation of the minimum field width and precision, as well s several flags.
 
 ## Supported conversions and flags
-• %c, %s, %p
-• %d, %i, %o, %u, %x, %X with the following flags: hh, h, l and ll.
-• %f with the flags: l and L.
-• %%
-• The following flags: #, 0, -, + and ' ' (space)
-• Minimum field-width
-• Precision
+• %c, %s, %p  
+• %d, %i, %o, %u, %x, %X with the following flags: hh, h, l and ll  
+• %f with the flags: l and L  
+• %%  
+• The following flags: #, 0, -, + and ' ' (space)  
+• Minimum field-width  
+• Precision  
 
 ## Bonus conversions
 The assignment allowed for other conversions that the student themselves would find useful. I coded

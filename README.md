@@ -1,5 +1,5 @@
 # The aim of the project FT_PRINTF
-This project was coded as an assignment for my school, Hive Helsinki. The goal was to code your own implementation of the libc function ´printf´ from scratch. The only allowed functions were
+This project was coded as an assignment for my school, Hive Helsinki. The goal was to code your own implementation of the libc function `printf` from scratch. The only allowed functions were
 ```
 ◦ write
 ◦ malloc
@@ -34,4 +34,7 @@ gcc -Wno-format test_main.c libftprintf.a -I includes
 ```
 The 'no-format' flag here is because otherwise it will give unnecessary compiling warnings because of faulty formatting. I however have written a couple of wrongly formatted lines 
 in the test_main to see that my ft_printf handles different edge or wrongly formatted cases the same way the normal printf does.
-'	ft_printf("%yThis is in yellow,%y this is not", YELLOW, EOC);  The %y conversion has to be written to start a color, and again to end it (EOC).
+```
+ft_printf("%yThis is in yellow,%y this is not", YELLOW, EOC); 
+```
+The %y conversion has to be written to start a color, and again to end it (EOC).
